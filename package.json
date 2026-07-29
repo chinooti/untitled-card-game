@@ -1,0 +1,15 @@
+{
+  "name": "cardgame",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lane-based turn-based online card game",
+  "workspaces": [
+    "shared"
+  ],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}
