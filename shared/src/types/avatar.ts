@@ -58,7 +58,13 @@ export interface ChargeCondition {
 
 export interface Avatar {
   id: AvatarId;
+   /** Proper name, e.g. "Ashra". Empty until named — display falls back to
+   *  the title alone. */
   name: string;
+
+  /** Class-pairing title, e.g. "Pyromancer". Full display is
+   *  `${name} the ${title}`. */
+  title: string;
 
   /** The two classes whose cards this avatar may run. Deck ratio is free —
    *  0 to 30 from either, mono-class decks legal, no neutral cards. (§8) */

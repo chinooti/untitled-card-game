@@ -107,6 +107,8 @@ Cards that draw are **unplayable** while the deck is empty. Deckout can only occ
 
 Four classes at launch. Each has a distinct win timeline and mechanical identity. Preserving these identities as cards are designed is the most important constraint.
 
+**Canonical class order: Fire, Defence, Undead, Magic.** Avatar IDs are always built in this order (`fire_magic`, never `magic_fire`), so each pairing has exactly one identifier.
+
 **Reserved for future classes — do not design into these spaces:** resource generation (Class 5), stat boosting (Class 6).
 
 ### Fire — The Aggressor
@@ -141,14 +143,17 @@ Each avatar is a pairing of two classes. Four classes give six avatars.
 
 **Deck construction:** any legal mix of cards from the avatar's two classes, in any ratio from 0 to 30. Mono-class decks are legal. There are no neutral cards.
 
-| Pairing | Identity | Gameplan |
+| ID | Title | Gameplan |
 |---|---|---|
-| Fire + Defence | The Turret | Sit behind Protectors, win through Retaliate and chip damage |
-| Fire + Undead | The Sacrifice Engine | Disposable bodies enable Fire payoffs |
-| Fire + Magic | The Burn Wizard | Spells amplify direct damage; glass cannon |
-| Defence + Undead | The Undying Wall | Everything comes back; near-impossible to push through |
-| Defence + Magic | The Control Fortress | Stall, remove threats, win on card advantage |
-| Undead + Magic | The Value Engine | Death triggers and spell effects chain; snowballs |
+| `fire_defence` | Turret | Sit behind Protectors, win through Retaliate and chip damage |
+| `fire_undead` | Hell Biker | Disposable bodies enable Fire payoffs |
+| `fire_magic` | Pyromancer | Spells amplify direct damage; glass cannon |
+| `defence_undead` | Zombie Knight | Everything comes back; near-impossible to push through |
+| `defence_magic` | Old Wizard | Stall, remove threats, win on card advantage |
+| `undead_magic` | Necromancer | Death triggers and spell effects chain; snowballs |
+
+Titles are placeholders for the class pairing. Each avatar will also get a
+proper name, displayed as `{name} the {title}`.
 
 ---
 
