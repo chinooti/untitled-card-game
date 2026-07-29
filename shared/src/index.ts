@@ -6,3 +6,5 @@ export * from './types/card';
 export * from './types/instance';
 export * from './types/avatar';
 export * from './types/state';
+export * from './types/action';
+export * from './types/event';
