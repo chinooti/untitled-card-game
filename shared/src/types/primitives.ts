@@ -23,6 +23,9 @@ export type InstanceId = string;
 
 export type PlayerId = 'p1' | 'p2';
 
+/* Identifies the avatar you are using */
+export type AvatarId = string;
+
 /**
  * Lane index, 0-based. Lanes resolve in ascending order during combat.
  *
