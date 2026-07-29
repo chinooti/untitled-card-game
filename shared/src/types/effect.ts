@@ -107,15 +107,6 @@ export type Effect =
 
   | { kind: 'grantKeyword'; target: TargetSpec; keyword: Keyword }
 
-   /** Target misses its next `attacks` attacks. Applied as a status on the
-   *  instance, not a keyword. Does not prevent Retaliate — freezing stops a
-   *  unit attacking, not defending itself. */
-  | { kind: 'freeze'; target: TargetSpec; attacks: number }
-
-  /** Target attacks `count` extra times, expiring at end of turn. The
-   *  permanent printed version is the `extraAttacks` keyword. */
-  | { kind: 'grantExtraAttack'; target: TargetSpec; count: number }
-
   /** Requires a free slot on the taking player's side; partially resolves
    *  to nothing if there isn't one. */
   | { kind: 'takeControl'; target: TargetSpec }
