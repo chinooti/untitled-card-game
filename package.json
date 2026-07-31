@@ -4,10 +4,12 @@
   "private": true,
   "description": "Lane-based turn-based online card game",
   "workspaces": [
-    "shared"
+    "shared",
+    "engine"
   ],
   "scripts": {
-    "typecheck": "npm run typecheck --workspaces --if-present"
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
   },
   "devDependencies": {
     "typescript": "^5.4.0"
