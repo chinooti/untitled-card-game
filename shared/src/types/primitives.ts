@@ -23,7 +23,7 @@ export type InstanceId = string;
 
 export type PlayerId = 'p1' | 'p2';
 
-/* Identifies the avatar you are using */
+/** Identifies an avatar (a two-class pairing). e.g. 'fire_defence'. */
 export type AvatarId = string;
 
 /**
@@ -36,7 +36,11 @@ export type AvatarId = string;
  */
 export type LaneIndex = number;
 
-export type CardClass = 'fire' | 'defence' | 'undead' | 'magic';
+export type CardClass = 'fire' | 'earth' | 'undead' | 'frost';
+
+/** Canonical order. Avatar ids are always built in this sequence, so each
+ *  pairing has exactly one identifier. Reserved future classes: Electricity
+ *  (resource generation) and Nature (stat boosting). */
 
 /** The two slots each side of a lane provides. */
 export type SlotKind = 'troop' | 'protector';
