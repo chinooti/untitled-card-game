@@ -91,7 +91,7 @@ export type GameEvent =
   // -- statuses -------------------------------------------------------------
   | { type: 'frozen'; instanceId: InstanceId }
   | { type: 'unfrozen'; instanceId: InstanceId }
-  | { type: 'burnApplied'; instanceId: InstanceId; amount: number }
+  | { type: 'decayApplied'; instanceId: InstanceId; amount: number }
   | { type: 'statsChanged'; instanceId: InstanceId; attack: number; hp: number }
 
   // -- super meter ----------------------------------------------------------

@@ -44,13 +44,13 @@ export interface StatusState {
   /** Burn damage ticking on this unit after every attack phase. 0 = not
    *  burning. Stored here rather than read from keywords because a unit can
    *  be set alight by an effect regardless of what is printed on it. */
-  burning: number;
+  decaying: number;
 }
 
 export const emptyStatus = (): StatusState => ({
   frozen: false,
   grantedAttacks: 0,
-  burning: 0,
+  decaying: 0,
 });
 
 // ---------------------------------------------------------------------------
