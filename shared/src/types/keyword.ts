@@ -26,9 +26,13 @@ export type Keyword =
    *  Fires even if this unit died in the exchange. (§4) */
   | { kind: 'retaliate'; amount: number }
 
-  /** Damage-over-time on a *unit*. Ticks after every attack phase.
-   *  Does not affect avatars. (§12) */
-  | { kind: 'burn'; amount: number }
+  /** When this unit damages an enemy TROOP, that troop takes `amount` damage
+   *  at every post-combat phase, indefinitely.
+   *
+   *  Applies to troops only — never Protectors or avatars — so a defended
+   *  lane cannot be ground down. Does not stack: a second application
+   *  refreshes rather than adds. Countered by Regenerate. (§12) */
+  | { kind: 'decay'; amount: number }
 
   /** Heals `amount` after every attack phase. (§12) */
   | { kind: 'regenerate'; amount: number }
@@ -44,6 +48,12 @@ export type Keyword =
   /** Reduces attack of enemy troops in this lane by `reduction`,
    *  floored at MINIMUM_DAMAGE. (§12) */
   | { kind: 'chill'; reduction: number }
+
+  /** Attacks 'count' addtitional times each attack phase. Printed on the card and 
+   *  permanent as opposed to a temproarily granted extra attack which is a status.
+   *  
+   */
+  | { kind: 'extraAttacks'; count: number }
 
   /** Cannot be targeted by spells. */
   | { kind: 'spellImmune' };

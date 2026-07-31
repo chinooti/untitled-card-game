@@ -107,20 +107,21 @@ Cards that draw are **unplayable** while the deck is empty. Deckout can only occ
 
 Four classes at launch. Each has a distinct win timeline and mechanical identity. Preserving these identities as cards are designed is the most important constraint.
 
-**Canonical class order: Fire, Defence, Undead, Magic.** Avatar IDs are always built in this order (`fire_magic`, never `magic_fire`), so each pairing has exactly one identifier.
+**Canonical class order: Fire, Earth, Undead, Frost.** Avatar IDs are always built in this order (`fire_frost`, never `magic_frost`), so each pairing has exactly one identifier.
 
-**Reserved for future classes — do not design into these spaces:** resource generation (Class 5), stat boosting (Class 6).
+**Reserved for future classes — do not design into these spaces:**
+Electricity (resource generation) and Nature (stat boosting).
 
 ### Fire — The Aggressor
 High raw damage. The theme is dealing damage faster than the opponent can respond. Aims to close by approximately turn 5. Punishes slow starts, high burst, can bypass Protectors with direct-damage spells. Low staying power; runs out of steam in long games.
 
-### Defence — The Fortress
+### Earth — The Fortress
 Stalling, efficient damage avoidance, healing. Wins by outlasting rather than by dealing damage. Wants the game to go as long as possible. Extremely difficult to push damage through. Little to no standalone win condition — typically needs its paired class to close.
 
 ### Undead — The Swarm
 Cheap, disposable units. The identity is **keeping every lane occupied at all times**, not dealing more damage — bodies are replacements, not a flood, since each lane holds one troop. Benefits from allied units dying: on-death effects, token generation, Lives. Strong early, weak late, universally low HP.
 
-### Magic — The Wildcard
+### Frost — The Wildcard
 Card advantage and board manipulation. Midrange — more proactive than Defence, less aggressive than Fire. Wins by outplaying rather than out-statting. No reliable standalone finisher.
 
 ---
@@ -145,12 +146,12 @@ Each avatar is a pairing of two classes. Four classes give six avatars.
 
 | ID | Title | Gameplan |
 |---|---|---|
-| `fire_defence` | Turret | Sit behind Protectors, win through Retaliate and chip damage |
+| `fire_earth` | Turret | Sit behind Protectors, win through Retaliate and chip damage |
 | `fire_undead` | Hell Biker | Disposable bodies enable Fire payoffs |
-| `fire_magic` | Pyromancer | Spells amplify direct damage; glass cannon |
-| `defence_undead` | Zombie Knight | Everything comes back; near-impossible to push through |
-| `defence_magic` | Old Wizard | Stall, remove threats, win on card advantage |
-| `undead_magic` | Necromancer | Death triggers and spell effects chain; snowballs |
+| `fire_frost` | Pyromancer | Spells amplify direct damage; glass cannon |
+| `earth_undead` | Zombie Knight | Everything comes back; near-impossible to push through |
+| `earth_frost` | Old Wizard | Stall, remove threats, win on card advantage |
+| `undead_frost` | Necromancer | Death triggers and spell effects chain; snowballs |
 
 Titles are placeholders for the class pairing. Each avatar will also get a
 proper name, displayed as `{name} the {title}`.
@@ -223,7 +224,7 @@ The choice is intended to be genuine: going first buys tempo and free avatar dam
 |---|---|
 | **Protector** | Shares a lane with a troop. Must be destroyed before the troop behind it can be targeted |
 | **Retaliate X** | Once combat has ended in this lane, deal X damage to the attacker. Fires even if this unit died in the exchange |
-| **Burn X** | Damage over time applied to a **unit**. Ticks after every attack phase. Does not affect avatars |
+| **Decay X** | When this unit damages an enemy troop, that troop takes X damage at every post-combat phase, indefinitely. Troops only — never Protectors or avatars. Does not stack; a second application refreshes rather than adds. Countered by Regenerate |
 | **X Lives** | On destruction, respawns at full stats during the Post-combat phase, consuming one life. Consuming a life **counts as a death** and fires on-death effects and friendly-death triggers |
 | **On death** | Triggers immediately when the card is destroyed |
 | **Summon** | Creates a token. Distributes across the board; partially resolves if slots are short |
@@ -259,18 +260,10 @@ Recorded so these do not get reintroduced by accident:
 
 ## 15. Card set status
 
-The v0.1 draft set of 40 cards predates this document and requires a full rewrite. Known breakages by category:
+The card pool is empty. No cards have been designed yet.
 
-- **All six Wall cards** — convert to troops with the Protector keyword and an explicit attack value
-- **Burn cards** (Pyromancer, Lava Golem) — Burn no longer damages avatars; rewrite as unit damage-over-time
-- **All three evolution cards** — need mana costs and named or generic target requirements; existing trigger text is void
-- **Base cards referencing evolution triggers** (Hydra, Baby Ice Dragon, Ninja) — remove trigger text
-- **Lives cards** (Tiger, Wall of the Undead) — respawn is now at full stats in Post-combat, not reduced stats next turn
-- **Bone Warrior** — "summon 2 tokens in this lane" is unimplementable; must distribute across the board
-- **Cards referencing "walls"** (Fortified Wall, Scorched Earth) — reword to Protectors or units
-- **Warden** — "at the start of each turn" has no phase to occupy; move to Post-combat
-- **Revive** — see Open Items
-- **Betrayal** — taking control of a troop requires a free slot; define partial-resolution behaviour
+`shared/src/data/cards/_examples.ts` holds syntax reference for each card type.
+It is not part of the game and should be deleted once the real set exists.
 
 ---
 
