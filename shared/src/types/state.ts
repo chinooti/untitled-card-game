@@ -135,6 +135,10 @@ export interface PlayerState {
 
   /** Reroll charges left during the mulligan. Unused once play begins. */
   mulliganRerolls: number;
+
+  /** Set when this player accepts their opening hand. Both must confirm
+   *  before turn 1 begins. */
+  mulliganConfirmed: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -164,6 +168,10 @@ export interface GameState {
   players: Record<PlayerId, PlayerState>;
 
   activePlayer: PlayerId;
+
+  /** Who took the first turn. Needed to know when a round completes: `turn`
+   *  increments when play returns to this player. */
+  firstPlayer: PlayerId;
 
   /** Increments when play passes back to the player who went first. Mana max
    *  is derived from this. */

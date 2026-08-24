@@ -70,6 +70,7 @@ export function createGame(config: GameConfig): GameState {
   return {
     players: { p1, p2 },
     activePlayer: firstPlayer,
+    firstPlayer,
     // Turn 0 until the mulligan completes. The first real turn increments to
     // 1, which is also the first turn's mana maximum.
     turn: 0,
@@ -108,6 +109,7 @@ function createPlayer(
       supersRemaining: [...avatar.supers],
     },
     mulliganRerolls: MULLIGAN_REROLLS,
+    mulliganConfirmed: false,
   };
 }
 
